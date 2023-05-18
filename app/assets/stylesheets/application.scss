@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;  
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+input {
+  display: inline-block;
+}
+li{
+  list-style: none;
+}
+
+/* header */
+header,.header {
+  background-color: #EEEEEE;
+}
+
+.header {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+// header-left
+.home-link {
+  color: #FF8856;
+}
+
+.home-icon {
+  display: inline-block;
+}
+
+.home-link p {
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+// header-right
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+footer, .footer {
+  background-color: #EEEEEE;
+}
+
+// footer
+.footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.mypage-link {
+  color: #777777;
+}
+
+.mypage {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #DDDDDD;
+}
+
+.mypage-icon {
+  display: inline-block;
+}
+
+.mypage-link p {
+  margin: 0;
+}
+
+.main {
+  padding:30px;
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// ホームページ
+.search-field {
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+}
+
+.search-submit {
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  user-select: none;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #FF8856;
+  border: #FF8856;
+  cursor: pointer;
+}
+
+.areas {
+  display: flex;
+  gap: 10px;
+}
+
+.area {
+  width: 100%;
+  position: relative;
+}
+
+.area > a > img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.area > a > p {
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menus {
+  display: flex;
+  gap: 10px;
+}
+
+.menu {
+  width: 100%;
+  position: relative;
+}
+
+.menu > a > img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.menu > a > p {
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+// footer
+.footer-link{
+  font-size: 10px;
+}

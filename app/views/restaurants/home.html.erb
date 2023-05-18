@@ -1,0 +1,83 @@
+<div class="main">
+  <p>Reserve Menuはお店の予約及び料理を予約するサイトです</p>
+  <p>お店、料理を決め時間通りに向かうことでスムーズに料理を召し上がることができます</p>
+  <div class="container">
+    <div class="search">
+      <%= form_with url: home_path, local: true, method: :get , class: "search-home" do |f| %>
+        <%= f.text_field :area ,placeholder: "エリア、料理" ,class: "search-field" %>
+        <%= f.submit "探す" ,class: "search-submit" %>
+      <% end %>
+    </div> 
+    <div class="container">
+      <h1>エリアから探す</h1> 
+      <div class="areas">
+        <div class="area">
+          <%= link_to home_path(area: "東京") do %>
+            <p>東京</p>
+            <%= image_tag("Tokyo.jpg") %>
+          <% end %>
+        </div>
+        <div class="area">
+          <%= link_to home_path(area: "大阪") do %>
+            <p>大阪</p>
+            <%= image_tag("Oosaka.jpg") %>
+          <% end %>
+        </div>
+        <div class="area">
+          <%= link_to home_path(area: "福岡") do %>
+            <p>福岡</p>
+            <%= image_tag("Fukuoka.jpg") %>
+          <% end %>
+        </div>
+        <div class="area">
+          <%= link_to home_path(area: "京都") do %>
+            <p>京都</p>
+            <%= image_tag("Kyoto.jpg") %>
+          <% end %>
+        </div>
+        <div class="area">
+          <%= link_to home_path(area: "神奈川") do %>
+            <p>神奈川</p>
+            <%= image_tag("Kanagawa.jpg") %>
+          <% end %>
+        </div>
+      </div>
+      <div class="menu-area">
+        <h1>料理の種類から探す</h1>
+        <div class="menus">
+          <div class="menu">
+            <%= link_to home_path(menu: "ラーメン") do %>
+              <p>ラーメン</p>
+              <%= image_tag("ra-men.jpg") %>
+            <% end %>
+          </div>
+          <div class="menu">
+            <%= link_to home_path(menu: "寿司") do %>
+              <p>寿司</p>
+              <%= image_tag("sushi.jpg") %>
+            <% end %>
+          </div>
+          <div class="menu">
+            <%= link_to home_path(menu: "焼肉") do %>
+              <p>焼肉</p>
+              <%= image_tag("yakiniku.jpg") %>
+            <% end %>
+          </div>
+          <div class="menu">
+            <%= link_to home_path(menu: "イタリアン") do %>
+              <p>イタリアン</p>
+              <%= image_tag("itarian.jpg") %>
+          <% end %>
+          </div>
+          <div class="menu">
+            <%= link_to home_path(menu: "中華料理") do %>
+              <p>中華料理</p>
+              <%= image_tag("chinese.jpg") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
