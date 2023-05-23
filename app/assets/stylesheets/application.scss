@@ -242,7 +242,7 @@ footer, .footer {
 }
 
 .session-path {
-  display: block;
+  display: inline-block;
   padding: 5px 0;
   color: #777777;
 }
@@ -253,4 +253,13 @@ footer, .footer {
   font-size: 15px;
   padding-left: 3px;
   color: #777777;
+}
+
+.error-ul, .error-p{
+  color: #FF0000;
+  font-weight: bold;
+}
+
+.error-ul {
+  padding: 0;
 }
