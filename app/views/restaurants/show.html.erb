@@ -1,0 +1,77 @@
+<div class="restaurant-content">
+  <div class="restaurant-link">
+    <%= image_tag "ra-men.jpg" ,class: "restaurant-image" %>
+    <div class="search-restaurant-detail">
+      <p><%= @restaurant.name %></p>
+      <p>料理ジャンル/<span class="genre"><%= @restaurant.genre %></span></p>
+      <p>場所/<span class="genre"><%= @restaurant.address %></span></p>
+      <p><%= @restaurant.introduction %></p>
+    </div>
+  </div>
+</div>
+<div class="restaurant-menus">
+  <div class="restaurant-menus-border">
+    <p class="menu-p">メニュー</p>
+    <%= form_with url: "/"  do |f| %>
+      <div class="restaurant-menu">
+        <% @menus.each_with_index do |(menu,price), index| %>
+          <div class="food">
+            <div class="menu-price">
+              <p><%= menu %></p>
+              <p><%= number_to_currency(price, unit: "¥", format: "%u %n" ) %></p>
+            </div>
+            <div class="button">
+              <p class="plusButton">+</p>
+              <p class="minusButton">-</p>
+              <p class="resetButton">Reset</p>
+              <input id="counterOutput<%= index %>" class="counterOutput" name="items[number_of_items][]" disabled="disabled" value="0">
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="form-list">
+        <div class="date-area list">
+          <%= f.label :reservation_date, "予約日" %>
+          <%= f.date_field :reservation_date %>
+        </div>
+        <div class="time-area list">
+          <%= f.label :reservation_time, "予約時間" %>
+          <%= f.time_select :reservation_time,{:include_blank => true, :minute_step => 30} %>
+        </div>
+        <div class="people-area list">
+          <%= f.label :people, "人数"%>
+          <%= f.number_field :people, max:10, min:1 , class:"people" %>
+        </div>
+      </div>
+      <div><%= f.submit "予約する",{class: "submit"} %></div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$(function() {
+    let plusButton = document.getElementsByClassName("plusButton");
+    let minusButton = document.getElementsByClassName("minusButton");
+    let resetButton = document.getElementsByClassName("resetButton");
+    let counterOutputId;
+    for (let i = 0; i < plusButton.length; i++) {
+      //プラスボタン押下
+      plusButton[i].addEventListener("click", function() {
+        counterOutputId = document.getElementById("counterOutput" + i);
+        counterOutputId.value++;
+      });
+      //マイナスボタン押下
+      minusButton[i].addEventListener("click", function() {
+        counterOutputId = document.getElementById("counterOutput" + i);
+        if (counterOutputId.value >= 1) {
+          counterOutputId.value--; // カウント数が1以上のときだけ減算する
+        }
+      });
+      //リセットボタン押下
+      resetButton[i].addEventListener("click", function() {
+        counterOutputId = document.getElementById("counterOutput" + i);
+        counterOutputId.value = 0;
+      });
+    }
+});
+</script>

@@ -263,3 +263,192 @@ footer, .footer {
 .error-ul {
   padding: 0;
 }
+
+// search
+.search-results {
+  color: #777777;
+}
+
+.restaurant-content, .restaurant-menus {
+  max-width: 980px;
+  padding: 0 15px;
+  margin: 5px 0;
+}
+
+.restaurant-link {
+  border: solid 5px #FFCC66;
+  display: flex;
+}
+
+.restaurant-image {
+  width: 50%;
+  object-fit: cover;
+}
+
+.search-restaurant-detail {
+  padding: 0 15px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFEE;
+}
+
+.search-restaurant-detail p:first-child{
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF8856;
+}
+
+.search-restaurant-detail p:nth-child(2) {
+  text-align: left;
+  font-size: 14px;
+  color: #777777;
+}
+
+.genre {
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.search-restaurant-detail p:nth-child(3) {
+  text-align: left;
+  font-size: 16px;
+  color: #777777;
+}
+
+.search-restaurant-detail p:last-child {
+  text-align: left;
+  font-size: 16px;
+  color:  black;
+  font-weight: bold;
+}
+
+//restaurant-show
+.restaurant-menus-border {
+  border: solid 5px #FFCC66;
+  background-color: #FFFFEE;
+  padding-bottom: 20px;
+}
+
+.menu-p {
+  font-weight: bold;
+  color:  #FF8856;
+  font-size: 25px;
+}
+
+.menu-price p {
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+}
+
+.counterOutput {
+  width: 25px;
+  text-align: center;
+}
+
+.restaurant-menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+}
+
+.food {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-price {
+  width: 60%;
+  border-bottom: solid 1px black;
+  display: flex;
+  align-items: center;
+}
+
+.menu-price p:first-child {
+  width: 80%;
+  margin: 5px 0;
+}
+
+.menu-price p:nth-child(2) {
+  width: 20%;
+  text-align: center;
+  margin: 5px 0;
+  font-size: 80%;
+}
+
+.button {
+  width: 40%;
+  text-align: center;
+  user-select: none;
+}
+
+.plusButton, .minusButton {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid orange;
+  background-color: #FFCC66;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.plusButton:hover, .minusButton:hover, .resetButton:hover {
+	background-color: #FF9900;
+  color: #F5F5F5;
+}
+
+.resetButton {
+  border: 2px solid orange;
+  background-color: #FFCC66;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.form-list {
+  margin: 10px;
+}
+
+.list {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.list label {
+  padding-right: 10px;
+}
+
+.people {
+  width: 40px;
+  text-align: center;
+}
+
+.submit {
+  padding: 5px 200px;
+  font-weight: bold;
+  border: 2px solid orange;
+  background-color: #FFCC66;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.submit:hover {
+  background-color: #FF9900;
+  color: #F5F5F5;
+}

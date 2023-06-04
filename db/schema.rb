@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_094748) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_082331) do
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "genre"
+    t.text "introduction", limit: 50
+    t.text "menu"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
