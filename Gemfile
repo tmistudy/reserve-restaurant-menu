@@ -46,6 +46,8 @@ gem 'pry-byebug'
 
 gem 'font-awesome-sass'
 
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
