@@ -12,13 +12,13 @@
 <div class="restaurant-menus">
   <div class="restaurant-menus-border">
     <p class="menu-p">メニュー</p>
-    <%= form_with url: "/"  do |f| %>
+    <%= form_with url: reservation_path do |f| %>
       <div class="restaurant-menu">
         <% @menus.each_with_index do |(menu,price), index| %>
           <div class="food">
             <div class="menu-price">
-              <p><%= menu %></p>
-              <p><%= number_to_currency(price, unit: "¥", format: "%u %n" ) %></p>
+              <p class="menu<%= index %>"><%= menu %></p>
+              <p class="price<%= index %>"><%= number_to_currency(price, unit: "¥", format: "%u %n" ) %></p>
             </div>
             <div class="button">
               <p class="plusButton">+</p>
@@ -43,7 +43,8 @@
           <%= f.number_field :people, max:10, min:1 , class:"people" %>
         </div>
       </div>
-      <div><%= f.submit "予約する",{class: "submit"} %></div>
+      <div><%= f.submit "予約する",{class: "submit",id: "submit"} %></div>
+      <%= f.hidden_field :list_array, {id: "list_array", name: "list_array[][menu]"} %>
     <% end %>
   </div>
 </div>
@@ -54,6 +55,8 @@ $(function() {
     let minusButton = document.getElementsByClassName("minusButton");
     let resetButton = document.getElementsByClassName("resetButton");
     let counterOutputId;
+    let submit = document.getElementById("submit");
+    let listArray = [];
     for (let i = 0; i < plusButton.length; i++) {
       //プラスボタン押下
       plusButton[i].addEventListener("click", function() {
@@ -73,5 +76,23 @@ $(function() {
         counterOutputId.value = 0;
       });
     }
+    //予約ボタン押下
+    submit.addEventListener("click", function() {
+      let counterOutput = document.getElementsByClassName("counterOutput");
+      for (var i = 0; i < plusButton.length; i++){
+        if(counterOutput[i].value > 0){
+          var menu = document.getElementsByClassName("menu"+[i]);
+          var price = document.getElementsByClassName("price"+[i]);
+          price = price[0].textContent.slice(2)
+          var array = [];
+          array.push(menu[0].textContent);
+          array.push(price);
+          array.push(counterOutput[i].value);
+          listArray.push(array);
+        }
+      }
+      var submit_btn = $('#list_array').val(listArray);
+      submit_btn;
+    });
 });
 </script>

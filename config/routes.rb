@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/home' ,to: 'restaurants#home'
   get '/restaurants/search' ,to: 'restaurants#search'
   get '/restaurants/:id' ,to: 'restaurants#show'
+  post '/reservation' ,to: 'reservations#reservation'
+  get '/reservation/confirm' ,to: 'reservations#confirm'
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
