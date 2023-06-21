@@ -452,3 +452,92 @@ footer, .footer {
   background-color: #FF9900;
   color: #F5F5F5;
 }
+
+// reservation-confirm
+.confirm-menus {
+  width: 680px;
+}
+
+.reserve-menus  {
+  margin: 0 20px;
+}
+
+.reserve-menu {
+  display: flex;
+}
+
+.reserve-menu p {
+  display: inline-block;
+  width: 20%;
+}
+
+.reserve-menu p:first-child {
+  width: 40%;
+  font-weight: bold;
+}
+
+.total, #total-sum {
+  border: none;
+  background-color: #FFFFEE;
+  width: 100%;
+}
+
+.total {
+  text-align: center;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+}
+
+#total-sum {
+  display: inline-block;
+  text-align: center;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.total-money {
+  display: inline-block;
+}
+
+.reserve-money {
+  margin: 5px 0;
+}
+
+.date-people {
+  margin-bottom: 20px;
+}
+
+.date-people p {
+  display: inline-block;
+  font-size: 17px;
+  margin: 0;
+}
+
+.date-people p span {
+  border-bottom: 1px solid black;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.flash-notice-fail {
+  background-color: pink;
+  margin: 0;
+  text-align: center;
+  padding: 5px 0;
+  color: red;
+  font-weight: bold;
+  width: 100%;
+}
+
+.back {
+  margin-top: 10px;
+  display: inline-block;
+  color: black;
+  text-decoration: underline;
+}
+
+.back:hover {
+  color: #FF9900;
+}

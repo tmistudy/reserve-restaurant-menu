@@ -1,3 +1,4 @@
+<%= render "shared/error" %>
 <div class="restaurant-content">
   <div class="restaurant-link">
     <%= image_tag "ra-men.jpg" ,class: "restaurant-image" %>
@@ -44,8 +45,10 @@
         </div>
       </div>
       <div><%= f.submit "予約する",{class: "submit",id: "submit"} %></div>
-      <%= f.hidden_field :list_array, {id: "list_array", name: "list_array[][menu]"} %>
+      <%= f.hidden_field :list_array, {id: "list_array"} %>
+      <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
     <% end %>
+    <%= link_to "戻る",restaurants_search_path, {class: "back"} %>
   </div>
 </div>
 
@@ -92,7 +95,6 @@ $(function() {
         }
       }
       var submit_btn = $('#list_array').val(listArray);
-      submit_btn;
     });
 });
 </script>

@@ -1,0 +1,53 @@
+<%= render "shared/error" %>
+<div class="restaurant-menus confirm-menus">
+  <div class="restaurant-menus-border">
+    <p class="menu-p">予約詳細</p>
+    <%= form_with url: reservation_reserve_path do |f| %>
+      <div class="reserve-menus">
+        <% @menus.each_with_index do |menu,index| %>
+          <div class="reserve-menu">
+            <p><%= menu[0] %></p>
+            <p id="price<%= index %>"><%= number_to_currency(menu[1], unit: "¥", format: "%u %n" ) %></p>
+            <p id="num<%= index %>"><%= menu[2] %>つ</p>
+            <p><input id="total<%= index %>" class="total" disabled="disabled" ></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="reserve-money">
+        <p class="total-money">合計金額：</p>
+        <p class="total-money"><%= f.text_field :total,{id: "total-sum", disabled: "disabled"} %></p>
+      </div>
+      <div class="date-people">
+        <p>日時：<span><%= "#{@date_time.strftime("%Y年 %m月 %d日")} #{@date_time.hour}時 #{@date_time.min}分" %></span></p>
+        <p> 人数：<span><%= "#{@people}人" %></span></p>
+      </div>
+      <%= f.submit "予約する",{class: "submit"} %>
+      <%= f.hidden_field :menu, value: @menus %>
+      <%= f.hidden_field :total,{class: "total-sum"} %>
+      <%= f.hidden_field :people, value: @people %>
+      <%= f.hidden_field :restaurant_id, value: @restaurant_id %>
+      <%= f.hidden_field :user_id, value: @current_user %>
+      <%= f.hidden_field :reservation_date, value: @date %>
+    <% end %>
+    <%= link_to "戻る","/restaurants/#{@restaurant_id}", {class: "back"} %>
+  </div>
+</div>
+
+<script>
+$(function() {
+    let menu = document.getElementsByClassName("reserve-menu");
+    let totalPrice = [];
+    for(var i = 0; i < menu.length; i++ ){
+        var price = document.getElementById("price"+i);
+        var num = document.getElementById("num"+i);
+        price = Number(price.textContent.slice(2));
+        num = Number(num.textContent.slice(0,-1));
+        var total = price * num;
+        totalPrice.push(total);
+        $('#' + "total" + i).val("¥ "+total);
+    }
+    let totalSum = totalPrice.reduce((sum, element) => sum + element, 0);
+    $('#total-sum').val("¥ "+totalSum);
+    $('.total-sum').val(totalSum);
+});
+</script>

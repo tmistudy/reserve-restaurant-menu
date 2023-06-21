@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu: MyText
+  total: 1
+  reservation_date: 2023-06-13 16:51:49
+  people: 1
+
+two:
+  menu: MyText
+  total: 1
+  reservation_date: 2023-06-13 16:51:49
+  people: 1
