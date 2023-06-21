@@ -1,0 +1,20 @@
+<div class="restaurant-container">
+  <p class="search-results">検索結果：<%= @restaurants.length %>件</p>
+  <div class="restaurant-container">
+    <% @restaurants.each do |restaurant| %>
+      <div class="restaurant-content">
+        <%= link_to("/restaurants/#{restaurant.id}") do %>
+          <div class="restaurant-link">
+            <%= image_tag "ra-men.jpg" ,class: "restaurant-image" %>
+            <div class="search-restaurant-detail">
+              <p><%= restaurant.name %></p>
+              <p>料理ジャンル/<span class="genre"><%= restaurant.genre %></span></p>
+              <p>場所/<span class="genre"><%= restaurant.address %></span></p>
+              <p><%= restaurant.introduction %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
