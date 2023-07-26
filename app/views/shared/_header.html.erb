@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-left" >
       <div class="home">
-        <%= link_to home_path, class: "home-link" do %>
+        <%= link_to "/", class: "home-link" do %>
           <i class="fa fa-cutlery home-icon" aria-hidden="true"></i>
           <p class="home-icon">Reserve Menu</p>
         <% end %>
@@ -10,10 +10,17 @@
     </div>
     <div class="header-right">
       <div class="mypage">
+      <% if user_signed_in? %>
+        <%= link_to mypage_path, class: "mypage-link" do %>
+          <i class="fa fa-user-circle mypge-icon" aria-hidden="true"></i>
+          <p class="mypage-icon">マイページ</p>
+        <% end %>
+      <% else %>
         <%= link_to user_session_path, class: "mypage-link" do %>
           <i class="fa fa-user-circle mypge-icon" aria-hidden="true"></i>
           <p class="mypage-icon">マイページ</p>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>

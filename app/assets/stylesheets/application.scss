@@ -269,7 +269,7 @@ footer, .footer {
   color: #777777;
 }
 
-.restaurant-content, .restaurant-menus {
+.restaurant-content, .restaurant-menus, .mypage {
   max-width: 980px;
   padding: 0 15px;
   margin: 5px 0;
@@ -539,5 +539,94 @@ footer, .footer {
 }
 
 .back:hover {
+  color: #FF9900;
+}
+
+// mypage
+.mypage-main{
+  position: fixed;
+  top: 25%;
+  left: 25%;
+}
+
+.mypage-buttons {
+  display: flex;
+}
+
+.mypage-button {
+  padding: 10px;
+  border: 2px solid #FF9900;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #FFCC66;
+  font-weight: bold;
+  color: #444444;
+}
+
+.profile {
+  background-color: #FF9900;
+  color: white;
+}
+
+.myreserve {
+  display: none;
+}
+
+.detail-tables {
+  margin-bottom: 10px;
+}
+
+.detail-link {
+  color: #136FFF;
+}
+
+.restaurant-reserve-link {
+  color: #444444;
+  text-decoration: underline;
+}
+
+// detail
+.detail-table,.detail-tables {
+  width: 780px;
+  border: 3px solid #FF9900;
+}
+
+.detail-table th,.detail-table td,.detail-tables th,.detail-tables td {
+  border: 1px solid #FFCC66;
+  background-color: white;
+}
+
+.detail-table th,.detail-tables th {
+  color: #FF9900;
+}
+
+.detail-table td,.detail,.detail-tables td {
+  font-weight: bold;
+  color: #444444;
+}
+
+.detail {
+  font-size: 25px;
+  color: #FF9900;
+}
+
+.order-menu {
+  display: flex;
+}
+
+.order-menu p {
+  width: 20%;
+  text-decoration: underline;
+}
+
+.order-menu p:first-child {
+  width: 50%;
+}
+
+.order-menu p:last-child {
+  width: 30%;
+}
+
+.detail-link:hover,.restaurant-reserve-link:hover {
   color: #FF9900;
 }

@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(params.permit(:menu,:total,:reservation_date,:people,:restaurant_id,:user_id))
     if @reservation.save
       flash[:notice_success] = "予約しました"
-      redirect_to :home
+      redirect_to "/"
     else
       flash.now[:notice_fail] = "予約できませんでした"
       render "confirm",status: :unprocessable_entity

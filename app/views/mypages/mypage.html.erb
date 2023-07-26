@@ -1,0 +1,50 @@
+<div class="mypage-main">
+  <div class="mypage-buttons">
+    <div class="mypage-button profile">プロフィール</div>
+    <div class="mypage-button reserve">予約一覧</div>
+  </div>
+  <div class="myprofile">
+    <table class="detail-tables">
+      <tr><th>名前</th><td><%= current_user.name %></td></tr>
+      <tr><th>メールアドレス</th><td><%= current_user.email %></td></tr>
+    </table>
+  </div>
+  <div class="myreserve">
+    <% @reservations.each_with_index do |reservation,index| %>
+      <table class="detail-tables">
+        <tr><th>店名</th><td><%= link_to reservation.name,"/restaurants/#{reservation.restaurant_id}", {class: "restaurant-reserve-link"} %></td></tr>
+        <tr><th>予約日</th><td><%= reservation.reservation_date %></td></tr>
+        <tr><th>予約詳細リンク</th><td><%= link_to "詳細", "/mypage/#{reservation.reserve_id}",{class: "detail-link" } %></td></tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$(function() {
+  // プロフィールを押した時
+  $(".profile").click(function() {
+    $(".profile").css({
+      'background-color':'#FF9900',
+      'color':'white'
+    });
+    $(".reserve").removeAttr('style');
+    $(".myprofile").show();
+    $(".myreserve").hide();
+  });
+
+  // 予約したお店を押した時
+  $(".reserve").click(function() {
+    $(".reserve").css({
+      'background-color':'#FF9900',
+      'color':'white'
+    });
+    $(".profile").css({
+      'background-color':'#FFCC66',
+      'color':'#444444'
+    });
+    $(".myreserve").show();
+    $(".myprofile").hide();
+  });
+});
+</script>

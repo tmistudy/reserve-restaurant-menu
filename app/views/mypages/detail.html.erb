@@ -1,0 +1,20 @@
+<div>
+  <p class="detail">予約詳細</p>
+  <table class="detail-table">
+    <tr><th>店名</th><td><%= @restaurant.name %></td></tr>
+    <tr><th>場所</th><td><%= @restaurant.address %></td></tr>
+    <tr><th>予約日</th><td><%= @reservation.reservation_date.strftime("%Y年 %m月 %d日 %H時 %M分") %></td></tr>
+    <tr><th>人数</th><td><%= @reservation.people %>人</td></tr>
+    <tr><th>注文メニュー</th><td>
+    <% @menus.each do |menu| %>
+      <div class="order-menu">
+        <p><%= menu[0] %></p>
+        <p><%= menu[2] %>つ</p>
+        <p><%= number_to_currency(menu[1], unit: "¥", format: "%u %n" ) %></p>
+      </div>
+    <% end %>
+    </td></tr>
+    <tr><th>合計金額</th><td><p class="order-price"><%= number_to_currency(@reservation.total, unit: "¥", format: "%u %n" ) %></p></td></tr>
+  </table>
+  <div class="mypages-button"><%= link_to "戻る",:back, {class: "back"} %></div>
+</div>
