@@ -3,7 +3,7 @@
 <div class="container">
   <div class="search">
     <%= form_with url: restaurants_search_path, local: true, method: :get , class: "search-home" do |f| %>
-      <%= f.text_field :area ,placeholder: "エリア、料理" ,class: "search-field" %>
+      <%= f.text_field :area_or_menu ,placeholder: "店名、エリア、料理" ,class: "search-field" %>
       <%= f.submit "探す" ,class: "search-submit" %>
     <% end %>
   </div> 
