@@ -1,4 +1,5 @@
 <header>
+  <div class="background"></div>
   <div class="header">
     <div class="header-left" >
       <div class="home">
@@ -11,17 +12,32 @@
     <div class="header-right">
       <div class="mypage">
       <% if user_signed_in? %>
-        <%= link_to mypage_path, class: "mypage-link" do %>
+        <div class="mypage-link">
           <i class="fa fa-user-circle mypge-icon" aria-hidden="true"></i>
-          <p class="mypage-icon">マイページ</p>
-        <% end %>
+          <p class="mypage-icon"><%= current_user.name %>さん</p>
+        </div>
+        <ul class="header-menu">
+          <li><%= link_to "マイページ",mypage_path %></li>
+          <li><%= link_to "ログアウト" ,destroy_user_session_path %></li>
+        </ul>
       <% else %>
-        <%= link_to user_session_path, class: "mypage-link" do %>
+        <div class="mypage-link"%>
           <i class="fa fa-user-circle mypge-icon" aria-hidden="true"></i>
           <p class="mypage-icon">マイページ</p>
-        <% end %>
+        </div>
+        <ul class="header-menu">
+          <li><%= link_to "ログイン",user_session_path %></li>
+        </ul>
       <% end %>
       </div>
     </div>
   </div>
 </header>
+<script>
+$(function() {
+  $(".mypage").click(function() {
+    $(".background").slideToggle();
+    $(".header-menu").slideToggle();
+  });
+});
+</script>
